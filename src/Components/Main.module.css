@@ -1,3 +1,7 @@
+.container {
+    display: flex;
+}
+
 .inputFlex {
     display: flex;
     flex-direction: column;
@@ -17,8 +21,8 @@
     margin: 0 10px;
 }
 
-.container {
-    width: 900px;
+.leftContainer {
+    width: 65%;
     margin: 100px 0 0 100px;
 }
 
@@ -69,6 +73,7 @@ input[type='radio']:checked::after {
 }
 
 .card {
+    width: 90%;
     height: 250px;
     background-color: #f8f8f8;
     margin: 20px 0;
@@ -77,7 +82,20 @@ input[type='radio']:checked::after {
 }
 
 .cardInfo {
-    padding: 75px 100px;
+    margin: 45px;
+    background-color: white;
+    padding: 40px 80px
+}
+
+.cardInfoSecond {
+    margin: 44px;
+    background-color: white;
+    padding: 40px 80px;
+    position: absolute;
+    z-index: 1;
+    top: -22px;
+    width: 76%;
+    height: 50%;
 }
 
 .cardLink {
@@ -96,14 +114,14 @@ input[type='radio']:checked::after {
 }
 
 .inputSearch {
-    width: 600px;
+    width: 86%;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid black;
     border-radius: 13px;
-    margin: 15px;
+    margin: 15px 0 15px 15px;
     padding-left: 10px;
     font-size: 17px;
 }
@@ -123,10 +141,21 @@ input[type='radio']:checked::after {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: white;
+    background-color: #dedede;
     border-radius: 50px;
-    top: 95px;
-    left: 20px;
+    top: 45px;
+    left: 55px;
+}
+
+.cardImgPositionAbsoluteSecond {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #dedede;
+    border-radius: 50px;
+    top: 60px;
+    left: 55px;
+    z-index: 3;
 }
 
 .cardImg {
@@ -137,4 +166,29 @@ input[type='radio']:checked::after {
     position: absolute;
     left: 10px;
     top: 10px;
+}
+
+.rightContainer {
+    background-color: #f8f8f8;
+    height: revert;
+    width: 35vw;
+}
+
+.rightContainerHeader {
+    color: #b0b0b0;
+    margin: 40px;
+}
+
+.hearthAdd {
+    color: red;
+    position: absolute;
+    right: 60px;
+    top: 30px;
+}
+
+.hearthRemove {
+    color: black;
+    position: absolute;
+    right: 60px;
+    top: 30px;
 }

@@ -1,5 +1,8 @@
 import styles from "./Main.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import '../../node_modules/font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/fontawesome-free-solid'
 
 export default function Main() {
 
@@ -9,6 +12,7 @@ export default function Main() {
     const [currentCategorie, setCurrentCategorie] = useState('');
     const [jokeType, setJokeType] = useState("random", "search", "categories")
     const [display, setDisplay] = useState('none')
+    const [favourites, setFavourites] = useState([])
 
     function handleChange(event) {
         setJoke("")
@@ -36,11 +40,8 @@ export default function Main() {
             "https://api.chucknorris.io/jokes/categories"
         )
             .then((response) => response.json())
-            .then((categoriesMass) => {
-                console.log(categoriesMass)
-                setCategories([...categories, ...categoriesMass]);
-            });
-    };
+            .then((categories) => setCategories(categories))
+    }
 
     function loadJoke() {
         console.log(jokeType)
@@ -79,9 +80,37 @@ export default function Main() {
 
     }
 
+    function HandleOnClickAdd(joke) {
+        const newFavouriteListAdd = [...favourites, joke];
+        const saveToLocalStorage = (joke) => {
+            localStorage.setItem("FavouritesJoke", JSON.stringify(joke));
+        };
+
+        saveToLocalStorage(newFavouriteListAdd);
+        setFavourites(newFavouriteListAdd);
+    }
+    function HandleOnClickRemove(joke) {
+        const newFavouriteList = favourites.filter(
+            (favourite) => {
+                return favourite.id !== joke.id;
+            }
+        );
+        const saveToLocalStorage = (joke) => {
+            localStorage.setItem("FavouritesJoke", JSON.stringify(joke)
+            );
+        };
+        setFavourites(newFavouriteList);
+        saveToLocalStorage(newFavouriteList);
+    }
+    useEffect(() => {
+        const movieFavourites = JSON.parse(
+            localStorage.getItem("FavouritesJoke")
+        );
+        setFavourites(movieFavourites);
+    }, [setFavourites]);
     return (
-        <>
-            <div className={styles.container}>
+        <><div className={styles.container}>
+            <div className={styles.leftContainer}>
                 <h3>MSI 2020</h3>
                 <h2>Hey!</h2>
                 <p>Let's try to find a joke for you:</p>
@@ -110,19 +139,45 @@ export default function Main() {
                     </div>
                     <button onClick={loadJoke} className={styles.getJokeBtn}>Get a joke</button>
                     <div>
-                        {jokes === '' ? '' : jokes.map((item) => (
-                            <div key={item.id} className={styles.card}>
-                                <div className={styles.cardImgPositionAbsolute}><div className={styles.cardImg}></div></div>
-                                <div className={styles.cardInfo}>
-                                    <div><a className={styles.cardLink}>ID: {item.id}</a></div>
-                                    <div className={styles.cardDescription}>{item.value}</div>
-                                    <div className={styles.cardLastUpdate}>Last update: {item.updated_at}</div>
+                        {jokes === '' ? '' : jokes.map((item) => {
+                            const isFavourite = Boolean(
+                                favourites.find((favouriteFilm) => favouriteFilm.id === item.id),
+                            )
+                            return (<>
+                                <div key={item.id} className={styles.card}>
+                                    <div className={styles.cardImgPositionAbsoluteSecond}><div className={styles.cardImg}></div></div>
+                                    <div className={styles.cardInfoSecond}>
+                                        {!isFavourite ? (<FontAwesomeIcon className={styles.hearthAdd} icon={faHeart} onClick={() => HandleOnClickAdd(item)} />) : <FontAwesomeIcon className={styles.hearthRemove} icon={faHeart} onClick={() => HandleOnClickRemove(item)} />}
+                                        <div><a className={styles.cardLink}>ID: {item.id}</a></div>
+                                        <div className={styles.cardDescription}>{item.value}</div>
+                                        <div className={styles.cardLastUpdate}>Last update: {item.updated_at}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            </>)
+                        })}
                     </div>
                 </div>
             </div>
+            <div className={styles.rightContainer}>
+                <h2 className={styles.rightContainerHeader}>Favorite</h2>
+                {favourites.map((jokes) => {
+                    const isFavourite = Boolean(
+                        favourites.find((favouriteFilm) => favouriteFilm.id === jokes.id),
+                    )
+                    return (<>
+                        <div key={jokes.id} className={styles.card}>
+                            {!isFavourite ? (<FontAwesomeIcon className={styles.hearthAdd} icon={faHeart} onClick={() => HandleOnClickAdd(jokes)} />) : <FontAwesomeIcon className={styles.hearthRemove} icon={faHeart} onClick={() => HandleOnClickRemove(jokes)} />}
+                            <div className={styles.cardImgPositionAbsolute}><div className={styles.cardImg}></div></div>
+                            <div className={styles.cardInfo}>
+                                <div><a className={styles.cardLink}>ID: {jokes.id}</a></div>
+                                <div className={styles.cardDescription}>{jokes.value}</div>
+                                <div className={styles.cardLastUpdate}>Last update: {jokes.updated_at}</div>
+                            </div>
+                        </div>
+                    </>)
+                })}
+            </div>
+        </div>
         </>
     )
 }
