@@ -1,194 +1,203 @@
 .container {
-    display: flex;
+  display: flex;
 }
 
 .inputFlex {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .inputContainer {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .input {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 #random {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .leftContainer {
-    width: 65%;
-    margin: 100px 0 0 100px;
+  width: 65%;
+  margin: 100px 0 0 100px;
 }
 
 .categoriesBtn {
-    cursor: pointer;
-    background-color: white;
-    border: 1px solid #f8f8f8;
-    margin: 5px;
-    font-size: 15px;
-    color: gray;
-    padding: 5px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #f8f8f8;
+  margin: 5px;
+  font-size: 15px;
+  color: gray;
+  padding: 5px;
 }
 
 input[type='radio'] {
-    position: relative;
-    height: 40px;
-    width: 22px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
+  position: relative;
+  height: 40px;
+  width: 22px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
 }
 
 input[type='radio']::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 2px solid black;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid black;
 }
 
 input[type='radio']:checked::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: black;
-    transform: translate(-50%, -50%);
-    visibility: visible;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: black;
+  transform: translate(-50%, -50%);
+  visibility: visible;
 }
 
 .card {
-    width: 90%;
-    height: 250px;
-    background-color: #f8f8f8;
-    margin: 20px 0;
-    border-radius: 30px;
-    position: relative;
+  width: 90%;
+  height: 250px;
+  background-color: #f8f8f8;
+  margin: 20px 0;
+  border-radius: 30px;
+  position: relative;
 }
 
 .cardInfo {
-    margin: 45px;
-    background-color: white;
-    padding: 40px 80px
+  margin: 45px;
+  background-color: white;
+  padding: 40px 80px;
 }
 
 .cardInfoSecond {
-    margin: 44px;
-    background-color: white;
-    padding: 40px 80px;
-    position: absolute;
-    z-index: 1;
-    top: -22px;
-    width: 76%;
-    height: 50%;
+  margin: 44px;
+  background-color: white;
+  padding: 40px 80px;
+  position: absolute;
+  z-index: 1;
+  top: -22px;
+  width: 76%;
+  height: 50%;
 }
 
 .cardLink {
-    padding-bottom: 5px;
-    font-size: 11px;
+  padding-bottom: 5px;
+  font-size: 11px;
 }
 
 .styles.cardLink {
-    color: #b0b0b0
+  color: #b0b0b0;
 }
 
 .cardLastUpdate {
-    padding-top: 30px;
-    font-size: 10px;
-    color: #b0b0b0
+  padding-top: 30px;
+  font-size: 10px;
+  color: #b0b0b0;
 }
 
 .inputSearch {
-    width: 86%;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
-    border-radius: 13px;
-    margin: 15px 0 15px 15px;
-    padding-left: 10px;
-    font-size: 17px;
+  width: 86%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 13px;
+  margin: 15px 0 15px 15px;
+  padding-left: 10px;
+  font-size: 17px;
 }
 
 .getJokeBtn {
-    width: 150px;
-    height: 40px;
-    font-size: 17px;
-    background-color: #7795ff;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
+  width: 150px;
+  height: 40px;
+  font-size: 17px;
+  background-color: #7795ff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
 }
 
 .cardImgPositionAbsolute {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: #dedede;
-    border-radius: 50px;
-    top: 45px;
-    left: 55px;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #dedede;
+  border-radius: 50px;
+  top: 45px;
+  left: 55px;
 }
 
 .cardImgPositionAbsoluteSecond {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: #dedede;
-    border-radius: 50px;
-    top: 60px;
-    left: 55px;
-    z-index: 3;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #dedede;
+  border-radius: 50px;
+  top: 60px;
+  left: 55px;
+  z-index: 3;
 }
 
 .cardImg {
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAQAAAAm93DmAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQflCxAQJxKYziZCAAABN0lEQVRIx+2VsUrDQByHv0uCFCk4CMY4iB2VvoKgruIrKA71CTq56WpHfYAuuujkAzj4CnHrLG5KFhXsXYdEkF6Su/ZOrNDvhkC4fLn//8fdwawjxp4uqG9RgyO2nZWKR/p8AOySoTyMjD0IgISml/Y1iXOhP4RvIb8gjLQ3r2SW3y4Q6wsaFyrOuS75jY6kxR2JSSjYZIfQSrhGw6bkEzrWDSvZDJHdNHvmofDfQxGslJVZJ1SccVMZSsgVB5MJBVuVoShC4slLrg/F2F/vocz+ARsAMr9RnVEMc2HKAIqrsGqqecCApzwAQZs2AZKErr7deabHiyEqgSQl1Zd0rF36bxy69CHilM8fune6VmdPDYtcIgvdFxemvWvDMreFsM+Suw5ggweG3JcENDXr7LPqTzfnTxkBoZKFkgChYz4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMTEtMTZUMTY6Mzk6MTgrMDI6MDBwV+6ZAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTExLTE2VDE2OjM5OjE4KzAyOjAwAQpWJQAAAABJRU5ErkJggg==);
-    width: 40px;
-    height: 40px;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 10px;
-    top: 10px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAQAAAAm93DmAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQflCxAQJxKYziZCAAABN0lEQVRIx+2VsUrDQByHv0uCFCk4CMY4iB2VvoKgruIrKA71CTq56WpHfYAuuujkAzj4CnHrLG5KFhXsXYdEkF6Su/ZOrNDvhkC4fLn//8fdwawjxp4uqG9RgyO2nZWKR/p8AOySoTyMjD0IgISml/Y1iXOhP4RvIb8gjLQ3r2SW3y4Q6wsaFyrOuS75jY6kxR2JSSjYZIfQSrhGw6bkEzrWDSvZDJHdNHvmofDfQxGslJVZJ1SccVMZSsgVB5MJBVuVoShC4slLrg/F2F/vocz+ARsAMr9RnVEMc2HKAIqrsGqqecCApzwAQZs2AZKErr7deabHiyEqgSQl1Zd0rF36bxy69CHilM8fune6VmdPDYtcIgvdFxemvWvDMreFsM+Suw5ggweG3JcENDXr7LPqTzfnTxkBoZKFkgChYz4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMTEtMTZUMTY6Mzk6MTgrMDI6MDBwV+6ZAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTExLTE2VDE2OjM5OjE4KzAyOjAwAQpWJQAAAABJRU5ErkJggg==);
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 .rightContainer {
-    background-color: #f8f8f8;
-    height: revert;
-    width: 35vw;
+  background-color: #f8f8f8;
+  height: revert;
+  width: 35vw;
 }
 
 .rightContainerHeader {
-    color: #b0b0b0;
-    margin: 40px;
+  color: #b0b0b0;
+  margin: 40px;
 }
 
 .hearthAdd {
-    color: red;
-    position: absolute;
-    right: 60px;
-    top: 30px;
+  color: red;
+  position: absolute;
+  right: 60px;
+  top: 30px;
 }
 
 .hearthRemove {
-    color: black;
-    position: absolute;
-    right: 60px;
-    top: 30px;
+  color: black;
+  position: absolute;
+  right: 60px;
+  top: 30px;
 }
+
+/* idea for reusable css */
+/* .bigCard {}
+
+.bigCard .input {}
+
+.smallCard .input {}
+
+<div className={styles.bigCard}><JokeCard /></div> */
